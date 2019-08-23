@@ -1,0 +1,9 @@
+#!/bin/bash
+arg="rabbitmqctl stop_app ;"
+arg="$arg rabbitmqctl reset;"
+arg="$arg rabbitmqctl join_cluster --disc rabbit@rabbitmq_leader_1 ;"
+arg="$arg rabbitmqctl start_app;"
+arg="$arg exit;"
+docker exec -it rabbitmq_follow1_1 bash -c "$arg"
+
+docker exec -it rabbitmq_follow2_1 bash -c "$arg"

@@ -1,0 +1,7 @@
+#!/bin/bash
+name=jy-perf
+image_name=pivotalrabbitmq/perf-test:latest
+
+docker run -it --rm --name $name \
+     $image_name -h
+        --uri amqp://localhost -s 4096

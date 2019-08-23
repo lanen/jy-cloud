@@ -1,0 +1,24 @@
+#!/bin/bash
+name=jy-rabbitmqa
+image_name=rabbitmq:3-management
+port=5672
+if [ $(docker ps -a | grep -c $name"\n") -eq 0 ]; then
+    docker run --name $name \
+    -v $PWD/data:/var/lib/rabbitmq \
+    -h $name \
+    -e RABBITMQ_ERLANG_COOKIE='rabbitcookie' \
+    --add-host=jy-rabbitmqb:10.16.18.206 \
+    -p $port:$port \
+    -p 15672:15672 \
+    -p 25672:25672 \
+    -p 4369:4369 \
+    -d $image_name
+else
+    docker start $name
+fi
+
+#if [ $(lsof -i :$port | grep -c ":$port") -gt 1 ]; then
+#    echo "start $name success, listen at $port"
+#fi
+
+ss -lntp | grep 5672

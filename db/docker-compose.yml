@@ -8,6 +8,17 @@ services:
             - ./mysql-order-data:/var/lib/mysql
         env_file:
             - docker-compose.yml.env
+    rabbitmq:
+        image: rabbitmq:3-management
+        ports:
+            - "5672:5672"
+            - "15672:15672"
+        environment:
+            - RABBITMQ_DEFAULT_USER=user
+            - RABBITMQ_DEFAULT_PASS=password
+        volumes:
+            - ./rabbitmq_data:/var/run/rabbitmq
+
 networks:
     default:
         external:

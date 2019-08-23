@@ -1,0 +1,49 @@
+version: '2'
+services:
+    leader:
+        image: rabbitmq:3-management
+        ports:
+            - "5672:5672"
+            - "15672:15672"
+            - "25672:25672"
+            - "4369:4369"
+        environment:
+            - HOSTNAME=rabbitmq_leader_1
+            - RABBITMQ_ERLANG_COOKIE='cookie_of_cluster'
+            - RABBITMQ_DEFAULT_USER=user
+            - RABBITMQ_DEFAULT_PASS=password
+        volumes:
+            - ./rabbitmq_data_of_leader:/var/run/rabbitmq
+
+    follow1:
+        image: rabbitmq:3-management
+        ports:
+            - "5673:5672"
+            - "15673:15672"
+            - "25673:25672"
+            - "4370:4369"
+        environment:
+            - HOSTNAME=rabbitmq_follow1_1
+            - RABBITMQ_ERLANG_COOKIE='cookie_of_cluster'
+            - RABBITMQ_DEFAULT_USER=user
+            - RABBITMQ_DEFAULT_PASS=password
+        volumes:
+            - ./rabbitmq_data_of_follow1:/var/run/rabbitmq
+    follow2:
+        image: rabbitmq:3-management
+        ports:
+            - "5674:5672"
+            - "15675:15672"
+            - "25676:25672"
+            - "4371:4369"
+        environment:
+            - HOSTNAME=rabbitmq_follow2_1
+            - RABBITMQ_ERLANG_COOKIE='cookie_of_cluster'
+            - RABBITMQ_DEFAULT_USER=user
+            - RABBITMQ_DEFAULT_PASS=password
+        volumes:
+            - ./rabbitmq_data_of_follow2:/var/run/rabbitmq
+networks:
+    default:
+        external:
+            name: sale-parent

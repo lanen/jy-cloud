@@ -1,0 +1,2 @@
+#!/bin/bash
+docker exec -it jy-rabbitmqa bash -c "rabbitmqctl stop_app ; rabbitmqctl reset;rabbitmqctl start_app; exit"
