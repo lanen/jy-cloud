@@ -7,30 +7,29 @@ services:
             dockerfile: ./src/main/docker/Dockerfile
         ports:
             - "8081:8080"
-        depends_on:
-            - eureka-server
+        env_file:
+            - docker-compose.yml.env
     sale-pay-api:
         container_name: sale-pay-api
-        depends_on:
-            - eureka-server
         build:
             context: ./sale-pay-api
             dockerfile: ./src/main/docker/Dockerfile
         ports:
             - "8071:8080"
+        env_file:
+            - docker-compose.yml.env
     sale-credit-api:
         container_name: sale-credit-api
-        depends_on:
-            - eureka-server
         build:
             context: ./sale-credit-api
             dockerfile: ./src/main/docker/Dockerfile
         ports:
-            - "8061:8080"
+            - "8072:8080"
+        env_file:
+            - docker-compose.yml.env
     sale-page:
         container_name: sale-page
         depends_on:
-            - eureka-server
             - sale-pay-api
             - sale-credit-api
             - sale-order-api
@@ -39,3 +38,9 @@ services:
             dockerfile: ./src/main/docker/Dockerfile
         ports:
             - "8061:8080"
+        env_file:
+            - docker-compose.yml.env
+networks:
+    default:
+        external:
+            name: sale-parent

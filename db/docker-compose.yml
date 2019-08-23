@@ -1,0 +1,14 @@
+version: '2'
+services:
+    order-mysql:
+        image: mysql:5.7
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./mysql-order-data:/var/lib/mysql
+        env_file:
+            - docker-compose.yml.env
+networks:
+    default:
+        external:
+            name: sale-parent

@@ -16,6 +16,8 @@ services:
             dockerfile: ./src/main/docker/Dockerfile
         ports:
             - "9411:9411"
+        env_file:
+            - docker-compose.yml.env
     zuul-server:
         container_name: zuul-server
         depends_on:
@@ -25,3 +27,9 @@ services:
             dockerfile: ./src/main/docker/Dockerfile
         ports:
             - "3000:3000"
+        env_file:
+            - docker-compose.yml.env
+networks:
+    default:
+        external:
+            name: sale-parent
