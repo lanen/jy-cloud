@@ -1,12 +1,36 @@
 #!/bin/bash
 
-docker run --rm \
---network sale-parent \
--it inem0o/redis-trib \
-create --replicas 1 \
-192.168.1.96:2001 \
-192.168.1.96:2002 \
-192.168.1.96:2003 \
-192.168.1.96:2004 \
-192.168.1.96:2005 \
-192.168.1.96:2006
+function join(){
+
+    ip=192.168.1.11
+    d="1 2 3 4 5 6"
+    w=""
+    for v in $d;
+    do
+        node="cluster_node${v}_1"
+        ip=`docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $node`
+        w="$w $ip:200$v"
+    done
+    docker run --rm \
+    --network sale-parent \
+    -it inem0o/redis-trib \
+    create --replicas 1 $w
+
+}
+
+function check(){
+    ip=$1
+    docker run --rm \
+    --network sale-parent \
+    -it inem0o/redis-trib \
+    check $ip
+}
+
+if [ "check" == $1 ]; then
+ip=`docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $2`
+check $ip:$3 
+else 
+join
+fi
+
+

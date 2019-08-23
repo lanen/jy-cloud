@@ -1,0 +1,21 @@
+#!/bin/bash
+
+function w(){
+node=$1
+port=$2
+ip=192.168.1.11
+arr="2001 2002 2003 2004 2005 2006"
+echo $node $port
+ip=`docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $node`
+for i in $arr;
+do  
+    echo cluster meet $ip $i
+    docker exec -it $node redis-cli -h $node -p $port cluster meet $ip $i 
+done
+}
+
+d="1 2 3 4 5 6"
+for v in $d;
+do
+    w "cluster_node${v}_1" "200$v"
+done
