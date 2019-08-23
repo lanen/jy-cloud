@@ -1,0 +1,61 @@
+version: '2'
+services:
+    node1:
+        image: redis:3.0
+        ports:
+            - "2001:2001"
+        volumes:
+            - ./redis_data_node1:/data
+            - ./conf/node1.conf:/redis.conf
+        command:
+            /usr/local/bin/redis-server /redis.conf
+    node2:
+        image: redis:3.0
+        ports:
+            - "2002:2002"
+        volumes:
+            - ./redis_data_node2:/data
+            - ./conf/node2.conf:/redis.conf
+        command:
+            /usr/local/bin/redis-server /redis.conf
+    node3:
+        image: redis:3.0
+        ports:
+            - "2003:2003"
+        volumes:
+            - ./redis_data_node3:/data
+            - ./conf/node3.conf:/redis.conf
+        command:
+            /usr/local/bin/redis-server /redis.conf
+    node4:
+        image: redis:3.0
+        ports:
+            - "2004:2004"
+        volumes:
+            - ./redis_data_node4:/data
+            - ./conf/node4.conf:/redis.conf
+        command:
+            /usr/local/bin/redis-server /redis.conf
+    node5:
+        image: redis:3.0
+        ports:
+            - "2005:2005"
+        volumes:
+            - ./redis_data_node5:/data
+            - ./conf/node5.conf:/redis.conf
+        command:
+            /usr/local/bin/redis-server /redis.conf
+    node6:
+        image: redis:3.0
+        ports:
+            - "2006:2006"
+        volumes:
+            - ./redis_data_node6:/data
+            - ./conf/node6.conf:/redis.conf
+        command:
+            /usr/local/bin/redis-server /redis.conf
+        
+networks:
+    default:
+        external:
+            name: sale-parent

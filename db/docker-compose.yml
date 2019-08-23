@@ -1,6 +1,6 @@
 version: '2'
 services:
-    order-mysql:
+    mysql_order:
         image: mysql:5.7
         ports:
             - "3306:3306"
@@ -18,7 +18,12 @@ services:
             - RABBITMQ_DEFAULT_PASS=password
         volumes:
             - ./rabbitmq_data:/var/run/rabbitmq
-
+    redis:
+        image: redis:3.0
+        ports:
+            - "6379:6379"
+        volumes:
+            - ./redis_data:/data
 networks:
     default:
         external:

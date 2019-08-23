@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+function run(){
+    name=$1
+    port=$2
+cat > conf/${name}.conf <<EOF
+port $port
+bind 0.0.0.0
+cluster-enabled yes
+cluster-config-file nodes.conf
+cluster-node-timeout 5000
+appendonly yes
+EOF
+}
+run node1 2001
+run node2 2002
+run node3 2003
+run node4 2004
+run node5 2005
+run node6 2006
+run node7 2007

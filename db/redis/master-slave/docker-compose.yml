@@ -1,0 +1,45 @@
+version: '2'
+services:
+    master:
+        image: redis:3.0
+        ports:
+            - "6379:6379"
+        volumes:
+            - ./redis_data_master:/data
+        command:
+            /usr/local/bin/redis-server --port 6379
+    slave1:
+        depends_on:
+            - master
+        image: redis:3.0
+        ports:
+            - "6479:6479"
+        volumes:
+            - ./redis_data_slave1:/data
+        command:
+            /usr/local/bin/redis-server --port 6479 --slaveof masterslave_master_1 6379 
+    slave2:
+        depends_on:
+            - master
+        image: redis:3.0
+        ports:
+            - "6579:6579"
+        volumes:
+            - ./redis_data_slave2:/data
+        command:
+            /usr/local/bin/redis-server --port 6579 --slaveof masterslave_master_1 6379 
+    sentinel:
+        depends_on:
+            - master
+            - slave1
+            - slave2
+        image: redis:3.0
+        volumes:
+            - ./sentinel.conf:/sentinel.conf
+        command:
+            /usr/local/bin/redis-sentinel /sentinel.conf 
+        
+networks:
+    default:
+        external:
+            name: sale-parent
