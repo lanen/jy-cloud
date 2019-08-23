@@ -1,0 +1,28 @@
+server:
+  port: 8080
+eureka:
+  instance:
+    metadata-map:
+      zone: zone-1
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    prefer-same-zone-eureka: true
+    region: shenzhen
+    service-url:
+      zone-1: http://localhost:8761/eureka
+    availability-zones:
+      shenzhen: zone-1
+spring:
+  application:
+    name: sale-page
+  zipkin:
+    enabled: true
+    locator:
+      discovery:
+        enabled: true
+    service:
+      name: sale-page
+    base-url: http://localhost:9411

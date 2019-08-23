@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: zipkin-server
+
+server:
+  port: 9411
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    prefer-same-zone-eureka: true
+    region: shenzhen
+    service-url:
+      zone-1: http://localhost:8761/eureka
+    availability-zones:
+      shenzhen: zone-1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["prometheus","health"]
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    web:
+      server:
+        auto-time-requests: false

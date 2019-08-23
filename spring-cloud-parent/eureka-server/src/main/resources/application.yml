@@ -1,0 +1,23 @@
+zone:
+  name: zone-1
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+    metadata-map:
+      zone: ${zone.name}
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    prefer-same-zone-eureka: true
+    region: shenzhen
+    availability-zones:
+      shenzhen: zone-1
+    service-url:
+      zone-1: http://${eureka.instance.hostname}:${server.port}/eureka
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server
