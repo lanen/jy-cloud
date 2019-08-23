@@ -74,7 +74,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.buyou.eureka.server.EurekaServer</mainClass>
+                    <mainClass>com.buyou.zipkin.ZipkinApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

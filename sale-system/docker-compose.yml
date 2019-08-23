@@ -1,0 +1,41 @@
+version: '2'
+services:
+    sale-order-api:
+        container_name: sale-order-api
+        build:
+            context: ./sale-order-api
+            dockerfile: ./src/main/docker/Dockerfile
+        ports:
+            - "8081:8080"
+        depends_on:
+            - eureka-server
+    sale-pay-api:
+        container_name: sale-pay-api
+        depends_on:
+            - eureka-server
+        build:
+            context: ./sale-pay-api
+            dockerfile: ./src/main/docker/Dockerfile
+        ports:
+            - "8071:8080"
+    sale-credit-api:
+        container_name: sale-credit-api
+        depends_on:
+            - eureka-server
+        build:
+            context: ./sale-credit-api
+            dockerfile: ./src/main/docker/Dockerfile
+        ports:
+            - "8061:8080"
+    sale-page:
+        container_name: sale-page
+        depends_on:
+            - eureka-server
+            - sale-pay-api
+            - sale-credit-api
+            - sale-order-api
+        build:
+            context: ./sale-page
+            dockerfile: ./src/main/docker/Dockerfile
+        ports:
+            - "8061:8080"

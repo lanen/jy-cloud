@@ -1,0 +1,27 @@
+version: '2'
+services:
+    eureka-server:
+        container_name: eureka-server
+        build:
+            context: ./eureka-server
+            dockerfile: ./src/main/docker/Dockerfile
+        ports:
+            - "8761:8761"
+    zipkin-server:
+        container_name: zipkin-server
+        depends_on:
+            - eureka-server
+        build:
+            context: ./zipkin-server
+            dockerfile: ./src/main/docker/Dockerfile
+        ports:
+            - "9411:9411"
+    zuul-server:
+        container_name: zuul-server
+        depends_on:
+            - eureka-server
+        build:
+            context: ./zuul-server
+            dockerfile: ./src/main/docker/Dockerfile
+        ports:
+            - "3000:3000"
