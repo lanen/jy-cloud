@@ -13,7 +13,7 @@ spring:
     sampler:
       probability: 1.0
 server:
-  port: 3000
+  port: 3030
 
 
 eureka:
