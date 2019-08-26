@@ -41,3 +41,5 @@ management:
     web:
       server:
         auto-time-requests: false
+    tags:
+      application: ${spring.application.name}

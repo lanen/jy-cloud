@@ -7,7 +7,7 @@ spring:
       discovery:
         enabled: true
     service:
-      name: zuul-server
+      name: ${spring.application.name}
     base-url: http://localhost:9411
   sleuth:
     sampler:
@@ -47,6 +47,8 @@ management:
     web:
       server:
         auto-time-requests: false
+    tags:
+      application: ${spring.application.name}
 
 zuul:
   routes:

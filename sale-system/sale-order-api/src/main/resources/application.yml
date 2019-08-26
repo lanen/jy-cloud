@@ -30,7 +30,7 @@ spring:
       discovery:
         enabled: true
     service:
-      name: sale-order-api
+      name: ${spring.application.name}
     base-url: http://localhost:9411
 
   sleuth:
@@ -40,3 +40,26 @@ spring:
     database-platform: org.hibernate.dialect.MySQL57InnoDBDialect
     open-in-view: false
     generate-ddl: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["prometheus","health"]
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    web:
+      server:
+        auto-time-requests: false
+    tags:
+      application: ${spring.application.name}
+
