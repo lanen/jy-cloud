@@ -32,7 +32,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: ["prometheus","health"]
+        include: ["prometheus","health","hystrix.stream"]
   endpoint:
     health:
       show-details: always
@@ -49,6 +49,8 @@ management:
         auto-time-requests: false
     tags:
       application: ${spring.application.name}
+
+
 
 zuul:
   routes:

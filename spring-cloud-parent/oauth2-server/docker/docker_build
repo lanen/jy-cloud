@@ -1,0 +1,10 @@
+#!/bin/bash
+rm -rf ./etc/ && mkdir ./etc/
+rm ./setup-jre-cacert.sh
+cp -r ../etc/cas ./etc/cas
+cp  /etc/cas/*.cer ./etc/cas/
+cp ../target/cas.war .
+cp ../setup-jre-cacert.sh ./
+
+docker build -t cas-server:1.0.0 .
+docker tag cas-server:1.0.0 cas-server:latest

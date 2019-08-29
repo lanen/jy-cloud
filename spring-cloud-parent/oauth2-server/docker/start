@@ -1,0 +1,16 @@
+#!/bin/bash
+name=cas-server
+image_name=cas-server:latest
+port=8443
+if [ $(docker ps -a | grep -c $name) -eq 0 ]; then
+    docker run --name $name -p $port:$port \
+    -v $PWD/etc/cas:/etc/cas \
+    --add-host=ldap.demo.org:10.16.18.152 \
+    -d $image_name
+else
+    docker start $name
+fi
+
+if [ $(lsof -i :$port | grep -c ":$port") -gt 1 ]; then
+    echo "start $name success, listen at $port"
+fi
