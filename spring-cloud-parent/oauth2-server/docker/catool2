@@ -1,0 +1,33 @@
+#!/bin/bash
+t=pkcs12
+p=changeit
+n=thekeystore
+echo create $n
+b=/root/.acme.sh/buyou.me_ecc
+b=/tmp
+openssl pkcs12 -export -in $b/buyou.me.cer \
+ -inkey $b/buyou.me.key \
+ -passin pass:$p \
+ -passout pass:$p \
+ -out $n
+
+keytool -changealias -noprompt -alias 1 -keystore $n -storepass $p -destalias buyou
+#keytool -importkeystore -srckeystore cacerts -destkeystore cacerts -deststoretype pkcs12
+
+ 
+kt="docker run -v $b/buyou.me.cer:/tmp/buyou.me.cer -v $PWD/cacerts:/tmp/cacerts adoptopenjdk/openjdk8:jre8u222-b10 keytool"
+$kt -import -noprompt \
+    -alias buyoucert \
+    -file /tmp/buyou.me.cer \
+    -keystore /tmp/cacerts \
+    -storepass $p \
+    -storetype $t 
+ 
+ 
+kt="docker run -v $b/buyou.me.cer:/tmp/buyou.me.cer -v $PWD/$n:/tmp/$n adoptopenjdk/openjdk8:jre8u222-b10 keytool"
+$kt -import -noprompt \
+    -alias buyoucert \
+    -file /tmp/buyou.me.cer \
+    -keystore /tmp/$n \
+    -storepass $p \
+    -storetype $t 

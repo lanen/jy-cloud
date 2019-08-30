@@ -29,15 +29,22 @@ services:
             - "3030:3030"
         env_file:
             - docker-compose.yml.env
-    oauth2-server:
-        container_name: oauth2-server
-        build:
-            context: ./oauth2-server
-            dockerfile: ./src/main/docker/Dockerfile
-        ports:
-            - "8443:8443"
-        env_file:
-            - docker-compose.yml.env
+#    oauth2-server:
+#        container_name: oauth2-server
+#        build:
+#            context: ./oauth2-server
+#            dockerfile: ./src/main/docker/Dockerfile
+#        ports:
+#            - "8443:8443"
+#        volumes:
+#            - ./oauth2-server/docker/cacerts:/usr/local/openjdk-8/lib/security/cacerts
+#            - ./oauth2-server/docker/cacerts:/usr/local/openjdk-8/lib/security/jssecacerts
+#            - ./oauth2-server/docker/cas.properties:/etc/cas/config/cas.properties
+#            - ./oauth2-server/docker/thekeystore:/etc/cas/thekeystore
+#        env_file:
+#            - docker-compose.yml.env
+#        extra_hosts:
+#            - buyou.me:10.16.18.150
 networks:
     default:
         external:
