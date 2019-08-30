@@ -1,0 +1,76 @@
+version: '2'
+services:
+    master:
+        image: elasticsearch:7.2.0
+        container_name: elasticsearch
+        environment:
+            - cluster.name=sale-order
+            - discovery.type=single-node
+            - bootstrap.memory_lock=true
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+            - http.cors.enabled=true
+            - http.cors.allow-origin=*
+ #           - cluster.initial_master_nodes=elasticsearch
+ #           - ES_CLUSTERNAME=elasticsearch
+ #           - discovery.zen.minimum_master_nodes=1
+            
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+        ports:
+            - "9200:9200"
+            - "9300:9300"
+        volumes:
+            - ./data1:/usr/share/elasticsearch/data
+#    master2:
+#        image: elasticsearch:7.2.0
+#        container_name: elasticsearch2
+#        depends_on:
+#            - master
+#        environment:
+#            - cluster.name=sale-order
+#            - cluster.initial_master_nodes=elasticsearch
+#            - bootstrap.memory_lock=true
+#            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+#            - "discovery.zen.ping.unicast.hosts=elasticsearch"
+#            - http.cors.enabled=true
+#            - http.cors.allow-origin=*
+#            - discovery.zen.minimum_master_nodes=2
+#        ulimits:
+#            memlock:
+#                soft: -1
+#                hard: -1
+#        volumes:
+#            - ./data2:/usr/share/elasticsearch/data
+#    master3:
+#        image: elasticsearch:7.2.0
+#        container_name: elasticsearch3
+#        depends_on:
+#            - master
+#        environment:
+#            - cluster.name=sale-order
+#            - cluster.initial_master_nodes=elasticsearch
+#            - bootstrap.memory_lock=true
+#            - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+#            - "discovery.zen.ping.unicast.hosts=elasticsearch"
+#            - http.cors.enabled=true
+#            - http.cors.allow-origin=*
+#            - discovery.zen.minimum_master_nodes=2
+#        ulimits:
+#            memlock:
+#                soft: -1
+#                hard: -1
+#        volumes:
+#            - ./data3:/usr/share/elasticsearch/data
+
+    head:
+        image: mobz/elasticsearch-head:5
+        container_name: head
+        ports:
+            - "9100:9100"
+
+networks:
+    default:
+        external:
+            name: sale_parent
