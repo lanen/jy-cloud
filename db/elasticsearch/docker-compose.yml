@@ -1,12 +1,13 @@
 version: '2'
 services:
     master:
-        image: elasticsearch:7.2.0
+        image: elasticsearch:6.4.3
         container_name: elasticsearch
         environment:
             - cluster.name=sale-order
             - discovery.type=single-node
             - bootstrap.memory_lock=true
+            - network.host=0.0.0.0
             - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
             - http.cors.enabled=true
             - http.cors.allow-origin=*
@@ -24,7 +25,7 @@ services:
         volumes:
             - ./data1:/usr/share/elasticsearch/data
 #    master2:
-#        image: elasticsearch:7.2.0
+#        image: elasticsearch:6.4.3
 #        container_name: elasticsearch2
 #        depends_on:
 #            - master
@@ -44,7 +45,7 @@ services:
 #        volumes:
 #            - ./data2:/usr/share/elasticsearch/data
 #    master3:
-#        image: elasticsearch:7.2.0
+#        image: elasticsearch:6.4.3
 #        container_name: elasticsearch3
 #        depends_on:
 #            - master
