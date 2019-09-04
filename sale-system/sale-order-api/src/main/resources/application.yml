@@ -20,10 +20,11 @@ spring:
     name: sale-order-api
   datasource:
     hikari:
-      jdbc-url: jdbc:h2:mem:ordertest;DB_CLOSE_DELAY=-1;MODE=MySQL
+      jdbc-url: jdbc:h2:mem:ordertest;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false;MODE=MySQL
       username: sa
       password:
-      driver-class-name: org.h2.Driver
+      driver-class-name: ${spring.datasource.driver-class-name}
+    driver-class-name: org.h2.Driver
   zipkin:
     enabled: true
     locator:
@@ -43,9 +44,12 @@ spring:
   data:
     elasticsearch:
       cluster-name: sale-order
-      cluster-nodes: 10.16.18.152:9300
+      cluster-nodes: 10.16.18.46:9300
       repositories:
         enabled: true
+  elasticsearch:
+    rest:
+      uris: http://10.16.18.46:9200
 
 management:
   endpoints:
@@ -69,7 +73,12 @@ management:
     tags:
       application: ${spring.application.name}
 
-  security:
-    helath:
-      elasticsearch:
-        enabled: false
+
+
+eventuatelocal:
+  kafka:
+    bootstrap:
+      servers: 10.16.18.46:9092
+  zookeeper:
+    connection:
+      string: 10.16.18.46:2181

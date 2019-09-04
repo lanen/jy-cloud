@@ -50,6 +50,7 @@ public class OrderService {
     public OrderEntity createOrder(OrderCreateParam createParam){
 
         OrderEntity orderEntity = new OrderEntity();
+
         orderEntity.setOrderId(System.currentTimeMillis());
 
 
@@ -57,7 +58,7 @@ public class OrderService {
         OrderEntity entity = orderRepository.save(orderEntity);
 
         logger.debug("fire order created event ");
-        orderServiceSaga.applyOrderCreated();
+        orderServiceSaga.applyOrderCreated(entity.getOrderId());
         return entity;
     }
 

@@ -4,7 +4,7 @@ package com.buyou.order.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="sale_order")
+@Table(name="sale_orders")
 public class OrderEntity {
 
     @Id
