@@ -34,6 +34,7 @@ public class OrderEventConsumer {
         orderIndex.setCustomer("1");
         orderIndex.setId(String.valueOf(event.getOrderId()));
 
+        System.out.println("DDD");
         orderIndexService.save(orderIndex);
     }
 
