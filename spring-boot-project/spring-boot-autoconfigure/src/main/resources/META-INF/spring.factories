@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.buyou.spring.boot.autoconfigure.eventuateio.tram.EventuateTramCommandsAutoConfiguration,\
+com.buyou.spring.boot.autoconfigure.eventuateio.tram.EventuateTramQueryAutoConfiguration
