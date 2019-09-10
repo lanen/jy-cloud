@@ -10,4 +10,51 @@
 	</parent>
 	<artifactId>eventuate-tram-query-starter</artifactId>
 	<packaging>jar</packaging>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.buyou</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<type>import</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+			<artifactId>eventuate-tram-commands</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+			<artifactId>eventuate-tram-events</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+			<artifactId>eventuate-tram-messaging</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>io.eventuate.tram.core</groupId>
+			<artifactId>eventuate-tram-jdbc-kafka</artifactId>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
 </project>

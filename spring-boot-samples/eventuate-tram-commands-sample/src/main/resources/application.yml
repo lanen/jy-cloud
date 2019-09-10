@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:test?Mode=MySQL
+    driver-class-name: org.h2.Driver
+
+crqs:
+  enabled: true
+  kafka:
+    servers: 10.16.18.46:9092

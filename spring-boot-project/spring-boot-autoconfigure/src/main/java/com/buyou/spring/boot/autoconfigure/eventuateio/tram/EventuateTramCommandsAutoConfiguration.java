@@ -1,7 +1,7 @@
 package com.buyou.spring.boot.autoconfigure.eventuateio.tram;
 
-import io.eventuate.tram.events.publisher.TramEventsPublisherConfiguration;
-import io.eventuate.tram.messaging.producer.jdbc.TramMessageProducerJdbcConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
@@ -13,6 +13,8 @@ import org.springframework.context.annotation.Import;
  * @date 2019-09-09
  */
 @Configuration
-@Import({TramEventsPublisherConfiguration.class, TramMessageProducerJdbcConfiguration.class})
+@ConditionalOnProperty(value = "crqs.enabled", havingValue = "true")
+@ConditionalOnClass(name="io.eventuate.tram.events.publisher.TramEventsPublisherConfiguration")
+@Import(EventuateTramCommandsConfiguration.class)
 public class EventuateTramCommandsAutoConfiguration {
 }
