@@ -1,7 +1,6 @@
 *.iml
 target
 logs
-.idea
 !.mvn/wrapper/maven-wrapper.jar
 ### STS ###
 .apt_generated
@@ -28,3 +27,5 @@ out
 
 ### VS Code ###
 .vscode
+
+build

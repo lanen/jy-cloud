@@ -28,5 +28,20 @@ scrape_configs:
     consul_sd_configs:
       - server: '10.16.18.152:8761'
         scheme: http
-        services: [ ZUUL-SERVER, ZIPKIN-SERVER, SALE-ORDER-API, SALE-CREDIT-API, SALE-PAY-APY, SALE-PAGE ]
-
+    relabel_configs:
+    - source_labels: ['__meta_consul_service_metadata_management_context_path']
+      regex:         '.+'
+      target_label:  __metrics_path__
+      replacement:   $0/prometheus
+    - source_labels: ['__meta_consul_service_address','__meta_consul_service_metadata_management_port']
+      regex:         '(.+);(.+)'
+      target_label: __address__
+      replacement:   $1:$2
+    - source_labels: ['__meta_consul_service_id']
+      regex:         .+
+      target_label: instance
+      replacement:   $0
+    - source_labels: ['__meta_consul_service']
+      regex:         .+
+      target_label: job
+      replacement:   $0
