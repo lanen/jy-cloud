@@ -1,5 +1,8 @@
 # jy-cloud
 
+[![Build Status](https://cloud.drone.io/api/badges/lanen/jy-cloud/status.svg)](https://cloud.drone.io/lanen/jy-cloud)
+[![Build Status](https://travis-ci.org/lanen/jy-cloud.svg?branch=master)](https://travis-ci.org/lanen/jy-cloud)
+[![codecov](https://codecov.io/gh/lanen/jy-cloud/branch/master/graph/badge.svg)](https://codecov.io/gh/lanen/jy-cloud)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 jy-cloud make a easy way to create cloud applicaiton.

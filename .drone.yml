@@ -1,0 +1,41 @@
+kind: pipeline
+name: jy-cloud-pipeline
+
+steps:
+#  - name: restore-cache
+#    image: drillster/drone-volume-cache
+#    privileged: true
+#    settings:
+#      restore: true
+#      mount:
+#        - /root/.m2
+#    volumes:
+#      - name: cache
+#        path: /cache
+  - name: build
+    image: maven:3.6.2-jdk-8
+    volumes:
+      - name: cache
+        path: /root/.m2
+    environment:
+        CODECOV_TOKEN:
+            from_secret: CODECOV_TOKEN
+    commands:
+      - mvn -s .mvn/settings.xml clean install -DskipTests=true -B 
+      - mvn -s .mvn/settings.xml cobertura:cobertura -B
+      - bash ./.mvn/codecov.sh -t $${CODECOV_TOKEN}
+      #- curl -o codecov.sh https://codecov.io/bash
+#  - name: rebuild-cache
+#    image: drillster/drone-volume-cache
+#    privileged: true
+#    settings:
+#      rebuild: true
+#      mount:
+#        - /root/.m2
+#    volumes:
+#      - name: cache
+#        path: /cache
+#volumes:
+#  - name: cache
+#    host:
+#      path: /tmp/cache
