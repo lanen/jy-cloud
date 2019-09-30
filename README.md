@@ -1,4 +1,18 @@
-# 微服务架构
+# jy-cloud
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+jy-cloud make a easy way to create cloud applicaiton.
+
+
+| Stable Release Version | JDK Version compatibility | Release Date |
+| ------------- | ------------- | ------------|
+| Working Now  | 1.8+ | 2019-12-1 |
+
+## License
+
+jy-cloud is licensed under **Apache Software License, Version 2.0**.
+
 
 ## docker-compose 快速建立开发环境
 
@@ -7,7 +21,3 @@
 * 提供 db/mysql 快速建立master/slave 架构，multi-master (分库分表架构）
 * 提供 db/redis 快速建立master/slave 哨兵模式， redis-cluster架构
 * 提供 db/rabbltmq 快速建立多镜像架构
-
-## sale-system
-
-
