@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.buyou</groupId>
+		<groupId>io.github.lanen</groupId>
 		<artifactId>spring-boot-starters</artifactId>
 		<version>${revision}</version>
 		<relativePath>..</relativePath>
@@ -15,7 +15,7 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>com.buyou</groupId>
+				<groupId>io.github.lanen</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
 				<version>${revision}</version>
 				<type>pom</type>
@@ -27,7 +27,7 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com.buyou</groupId>
+			<groupId>io.github.lanen</groupId>
 			<artifactId>spring-boot-autoconfigure</artifactId>
 			<version>${revision}</version>
 		</dependency>
