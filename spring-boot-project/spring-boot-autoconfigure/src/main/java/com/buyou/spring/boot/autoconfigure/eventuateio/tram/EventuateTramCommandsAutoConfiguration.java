@@ -5,12 +5,13 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+
 /**
  *
- * 生产消息的配置
+ * 生产消息的配置.
  *
  * @author evan
- * @date 2019-09-09
+ * 2019-09-09
  */
 @Configuration
 @ConditionalOnProperty(value = "crqs.enabled", havingValue = "true")

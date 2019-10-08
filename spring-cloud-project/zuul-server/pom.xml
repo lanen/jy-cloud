@@ -10,7 +10,7 @@
     <groupId>io.github.lanen</groupId>
     <artifactId>zuul-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>zuul-server</name>
+    <name>Cloud:网关服务器</name>
     <description>zuul-server</description>
 
     <properties>

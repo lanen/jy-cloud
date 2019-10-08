@@ -1,0 +1,7 @@
+#!/bin/bash
+
+mvn -pl spring-boot-project versions:set -DnewVersion=1.0.1
+mvn -pl spring-boot-project deploy -Psign-artifacts
+mvn -pl spring-boot-project versions:revert
+
+

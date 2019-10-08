@@ -29,3 +29,4 @@ out
 .vscode
 
 build
+.flattened-pom.xml

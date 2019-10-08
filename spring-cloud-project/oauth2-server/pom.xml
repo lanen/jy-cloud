@@ -8,6 +8,7 @@
     <artifactId>oauth2-server</artifactId>
     <packaging>war</packaging>
     <version>2.0.0</version>
+    <name>Cloud:OAuth2 服务器</name>
 
     <properties>
         <cas.name>cas</cas.name>

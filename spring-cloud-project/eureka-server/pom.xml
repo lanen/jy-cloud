@@ -10,7 +10,7 @@
     <groupId>io.github.lanen</groupId>
     <artifactId>eureka-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>eureka-server</name>
+    <name>Cloud:服务发现服务器</name>
     <description>eureka-server</description>
 
     <properties>
