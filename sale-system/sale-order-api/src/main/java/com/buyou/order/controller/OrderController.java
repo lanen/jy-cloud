@@ -12,65 +12,60 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *
+ * order  controller
  *
  * @author evan
  */
 @RestController
 public class OrderController implements OrderApi {
 
-    private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
+  private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
-    /**
-     *
-     */
-    private final OrderService orderService;
-
-
-    /**
-     *
-     * @param orderService
-     */
-    public OrderController(OrderService orderService) {
-        this.orderService = orderService;
-    }
+  /**
+   * order service
+   */
+  private final OrderService orderService;
 
 
-    /**
-     *
-     * @param createParam Order Crate Param
-     * @return
-     */
-    @PostMapping("/order")
-    public OrderDto createOrder(OrderCreateParam createParam){
-
-        OrderEntity order = orderService.createOrder(createParam);
-
-        OrderDto dto = new OrderDto();
-        dto.setOrderId(order.getOrderId());
-
-        return dto;
-    }
+  /**
+   * construct
+   */
+  public OrderController(OrderService orderService) {
+    this.orderService = orderService;
+  }
 
 
-    /**
-     *
-     * @param orderId
-     * @return
-     */
-    @GetMapping("/order/{orderId}")
-    public OrderDto findOrder(Long orderId){
-        OrderDto dto = new OrderDto();
-        return dto;
-    }
+  /**
+   * @param createParam Order Crate Param
+   * @return OrderDto
+   */
+  @PostMapping("/order")
+  public OrderDto createOrder(OrderCreateParam createParam) {
+
+    OrderEntity order = orderService.createOrder(createParam);
+
+    OrderDto dto = new OrderDto();
+    dto.setOrderId(order.getOrderId());
+
+    return dto;
+  }
 
 
+  /**
+   * @param orderId order id
+   * @return OrderDto
+   */
+  @GetMapping("/order/{orderId}")
+  public OrderDto findOrder(Long orderId) {
+    OrderDto dto = new OrderDto();
+    return dto;
+  }
 
 
-    @GetMapping("/test")
-    public void d(){
-        throw new RuntimeException("ddd");
-    }
+  @GetMapping("/test")
+  public void d() {
+    throw new RuntimeException("ddd");
+  }
 
 
 }

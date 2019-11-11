@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>io.github.lanen</groupId>
+		<artifactId>spring-boot-starters</artifactId>
+		<version>${revision}</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<artifactId>eventuate-local-query-starter</artifactId>
+	<packaging>jar</packaging>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.github.lanen</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<type>import</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.eventuate.client.java</groupId>
+			<artifactId>eventuate-client-java-spring</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.eventuate.local.java</groupId>
+			<artifactId>eventuate-local-java-jdbc</artifactId>
+		</dependency>
+
+	</dependencies>
+</project>

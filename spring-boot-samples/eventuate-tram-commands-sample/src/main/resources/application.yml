@@ -7,3 +7,17 @@ crqs:
   enabled: true
   kafka:
     servers: 10.16.18.46:9092
+eventuate:
+  database:
+    schema: article
+
+eventuatelocal:
+  aggregateStore:
+    bootstrap:
+      servers: 10.16.18.46:9092
+  kafka:
+    bootstrap:
+      servers: 10.16.18.46:9092
+  zookeeper:
+    connection:
+      string: 10.16.18.46:2181

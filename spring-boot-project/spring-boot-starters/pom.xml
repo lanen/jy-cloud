@@ -16,5 +16,7 @@
 	<modules>
 		<module>eventuate-tram-query-starter</module>
 		<module>eventuate-tram-commands-starter</module>
+		<module>eventuate-local-commands-starter</module>
+		<module>eventuate-local-query-starter</module>
 	</modules>
 </project>
