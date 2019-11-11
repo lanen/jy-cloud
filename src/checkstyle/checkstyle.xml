@@ -42,7 +42,7 @@
 
         <!-- Package -->
         <module name="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck">
-            <property name="format" value="^de\.codecentric\.boot\.admin(\.[a-z][a-z0-9]*)*$"/>
+            <property name="format" value="^com\.buyou(\.[a-z][a-z0-9]*)*$"/>
         </module>
 
         <!-- Imports -->

@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 
 /**
  * @author evan
- * @date 2019-09-09
+ * date 2019-09-09
  */
 @PropertySource("classpath:eventuate-tram.properties")
 @Import({TramEventsPublisherConfiguration.class, TramMessageProducerJdbcConfiguration.class})

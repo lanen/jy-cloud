@@ -5,14 +5,12 @@
 	<parent>
 		<groupId>io.github.lanen</groupId>
 		<artifactId>jy-cloud</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>${revision}</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>spring-boot-project</artifactId>
-	<version>${revision}</version>
 	<packaging>pom</packaging>
 	<properties>
-		<revision>1.0.0-SNAPSHOT</revision>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<modules>

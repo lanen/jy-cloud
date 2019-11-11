@@ -1,7 +1,8 @@
 #!/bin/bash
-
-mvn -pl spring-boot-project versions:set -DnewVersion=1.0.1
-mvn -pl spring-boot-project deploy -Psign-artifacts
-mvn -pl spring-boot-project versions:revert
+export MAVEN_SKIP_RC=1
+./mvnw versions:set -DnewVersion=1.0.1
+./mvnw javadoc:jar source:jar deploy -Psign-artifacts
+#./mvnw javadoc:jar source:jar
+./mvnw versions:revert
 
 

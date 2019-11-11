@@ -35,7 +35,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
-
+		<!-- Start for eventuate-tram -->
 		<dependency>
 			<groupId>io.eventuate.tram.core</groupId>
 			<artifactId>eventuate-tram-commands</artifactId>
@@ -59,6 +59,41 @@
 			<artifactId>eventuate-tram-jdbc-kafka</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<!-- End for eventuate-tram -->
+
+		<!-- Start for eventuate-local -->
+		<dependency>
+			<groupId>io.eventuate.client.java</groupId>
+			<artifactId>eventuate-client-java-spring</artifactId>
+			<optional>true</optional>
+<!--			<exclusions>-->
+<!--				<exclusion>-->
+<!--					<groupId>org.hibernate</groupId>-->
+<!--					<artifactId>hibernate-validator</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>log4j</groupId>-->
+<!--					<artifactId>log4j</artifactId>-->
+<!--				</exclusion>-->
+<!--			</exclusions>-->
+		</dependency>
+		<dependency>
+			<groupId>io.eventuate.local.java</groupId>
+			<artifactId>eventuate-local-java-jdbc</artifactId>
+			<optional>true</optional>
+<!--			<exclusions>-->
+<!--				<exclusion>-->
+<!--					<groupId>org.hibernate</groupId>-->
+<!--					<artifactId>hibernate-validator</artifactId>-->
+<!--				</exclusion>-->
+<!--				<exclusion>-->
+<!--					<groupId>log4j</groupId>-->
+<!--					<artifactId>log4j</artifactId>-->
+<!--				</exclusion>-->
+<!--			</exclusions>-->
+		</dependency>
+
+		<!-- End for eventuate-local -->
 
 	</dependencies>
 </project>

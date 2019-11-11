@@ -13,9 +13,10 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 		<java.version>1.8</java.version>
+		<maven.deploy.skip>true</maven.deploy.skip>
+		<maven.javadoc.skip>true</maven.javadoc.skip>
+
 	</properties>
 
 	<dependencyManagement>
@@ -23,7 +24,7 @@
 			<dependency>
 				<groupId>io.github.lanen</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
-				<version>${revision}</version>
+				<version>${project.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

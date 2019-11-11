@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    hikari:
+      jdbc-url: jdbc:h2:mem:article;Mode=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=TRUE;IFEXISTS=true
+      username: sa
+      password:
+  h2:
+    console:
+      enabled: true
+
+cqrs:
+  enabled: false
+  kafka:
+    servers: 10.16.18.46:9092
+  database: eventuate
+
+logging:
+  level:
+    io:
+      eventuate: info

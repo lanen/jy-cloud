@@ -17,7 +17,8 @@
 	<properties>
 		<spring-boot.version>2.1.7.RELEASE</spring-boot.version>
 		<eventual-tram-core.version>0.21.3.RELEASE</eventual-tram-core.version>
-
+		<eventuate.client.version>0.20.1.RELEASE</eventuate.client.version>
+		<eventuate.local.version>0.30.4.RELEASE</eventuate.local.version>
 	</properties>
 
 	<dependencyManagement>
@@ -60,6 +61,39 @@
 				<artifactId>eventuate-tram-jdbc-kafka</artifactId>
 				<version>${eventual-tram-core.version}</version>
 				<optional>true</optional>
+			</dependency>
+
+			<dependency>
+				<groupId>io.eventuate.client.java</groupId>
+				<artifactId>eventuate-client-java-spring</artifactId>
+				<version>${eventuate.client.version}</version>
+				<optional>true</optional>
+				<exclusions>
+					<exclusion>
+						<groupId>org.hibernate.validator</groupId>
+						<artifactId>hibernate-validator</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.apache.logging.log4j</groupId>
+						<artifactId>log4j</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>io.eventuate.local.java</groupId>
+				<artifactId>eventuate-local-java-jdbc</artifactId>
+				<version>${eventuate.local.version}</version>
+				<optional>true</optional>
+				<exclusions>
+					<exclusion>
+						<groupId>org.hibernate.validator</groupId>
+						<artifactId>hibernate-validator</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.apache.logging.log4j</groupId>
+						<artifactId>log4j</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 
 		</dependencies>

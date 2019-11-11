@@ -11,11 +11,11 @@ import org.springframework.context.annotation.Import;
  * 生产消息的配置.
  *
  * @author evan
- * 2019-09-09
+ * data 2019-09-09
  */
 @Configuration
 @ConditionalOnProperty(value = "crqs.enabled", havingValue = "true")
-@ConditionalOnClass(name="io.eventuate.tram.events.publisher.TramEventsPublisherConfiguration")
+@ConditionalOnClass(name = "io.eventuate.tram.events.publisher.TramEventsPublisherConfiguration")
 @Import(EventuateTramCommandsConfiguration.class)
 public class EventuateTramCommandsAutoConfiguration {
 }
