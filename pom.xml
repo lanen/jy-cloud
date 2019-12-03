@@ -110,7 +110,7 @@
 					<target>${maven.compiler.target}</target>
 				</configuration>
 			</plugin>
-			<!--
+
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>flatten-maven-plugin</artifactId>
@@ -140,7 +140,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			-->
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-enforcer-plugin</artifactId>
@@ -328,6 +328,7 @@
 						<arguments>-Dgpg.passphrase=${env.GPG_PASSPHRASE}</arguments>
 					</configuration>
 			  </plugin>
+
 			</plugins>
 		</pluginManagement>
 

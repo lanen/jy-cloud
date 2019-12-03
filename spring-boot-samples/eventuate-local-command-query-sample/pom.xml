@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>io.github.lanen</groupId>
-		<artifactId>spring-boot-samples</artifactId>
+		<artifactId>spring-boot-parent</artifactId>
 		<version>${revision}</version>
-		<relativePath>../../spring-boot-samples</relativePath>
+		<relativePath>../../spring-boot-project/spring-boot-parent</relativePath>
 	</parent>
 	<artifactId>eventuate-local-command-query-sample</artifactId>
 

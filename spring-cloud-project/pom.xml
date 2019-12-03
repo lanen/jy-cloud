@@ -19,7 +19,7 @@
 		<module>eureka-server</module>
 		<module>zuul-server</module>
 		<module>zipkin-server</module>
-		<module>oauth2-server</module>
+<!--		<module>oauth2-server</module>-->
 	</modules>
 	
 </project>

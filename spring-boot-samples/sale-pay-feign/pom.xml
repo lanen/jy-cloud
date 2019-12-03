@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.github.lanen</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
+        <artifactId>spring-boot-parent</artifactId>
         <version>${revision}</version>
         <relativePath>../../spring-boot-project/spring-boot-parent</relativePath>
     </parent>
@@ -44,6 +44,13 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>io.github.lanen</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${revision}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
@@ -52,6 +59,5 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 
 </project>
