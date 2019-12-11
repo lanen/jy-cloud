@@ -27,7 +27,6 @@ eureka:
     availability-zones:
       shenzhen: zone-1
 
-
 management:
   endpoints:
     web:
@@ -50,12 +49,10 @@ management:
     tags:
       application: ${spring.application.name}
 
-
-
-zuul:
-  routes:
-    sale-order-api:
-      path: /order/**
-      serviceId: "SALE-ORDER-API"
-      strip-prefix: false
-  sensitive-headers: ''
+#zuul:
+#  routes:
+#    sale-order-api:
+#      path: /order/**
+#      serviceId: "SALE-ORDER-API"
+#      strip-prefix: false
+#  sensitive-headers: ''
