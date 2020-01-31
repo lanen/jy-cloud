@@ -41,7 +41,7 @@
 		<git-commit-id-plugin.version>2.2.6</git-commit-id-plugin.version>
 		<flatten-maven-plugin.version>1.0.1</flatten-maven-plugin.version>
 		<maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
-		<checkstyle.version>8.23</checkstyle.version>
+		<checkstyle.version>8.29</checkstyle.version>
 		<nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
 		<javadoc.option.doclint></javadoc.option.doclint>
 
